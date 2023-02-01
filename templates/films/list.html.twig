@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FilmsController!{% endblock %}
+
+{% block body %}
+
+<table>
+  <thead>
+    <tr>
+      <th>Titre</th>
+      <th>synopsis</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for film in films %}
+    <tr>
+      <td>{{ film.Nom }}</td>
+      <td>{{ film.Synopsis }}</td>
+      <td>{{ film.Type }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

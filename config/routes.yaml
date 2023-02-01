@@ -11,3 +11,7 @@ index:
 films:
     path: /films
     controller: App\Controller\FilmsController::index
+
+list_film:
+    path: /films_list
+    controller: App\Controller\FilmsController::films/list

@@ -26,7 +26,7 @@ class FilmsController extends AbstractController
             $entityManager->persist($film);
             $entityManager->flush();
 
-            return $this->redirectToRoute('film_index');
+            return $this->redirect('/');
         }
 
         return $this->render('films/index.html.twig', [
@@ -34,8 +34,17 @@ class FilmsController extends AbstractController
             'form' => $form->createView(),
         ]);
 
-        // return $this->render('films/index.html.twig', [
-        //     'controller_name' => 'Bienvenu sur l\'accueil',
-        // ]);
     }
+
+    #[Route('/films_list', name: 'app_films_list')]
+    public function listFilms(ManagerRegistry $doctrine): Response
+        {
+            $films = $doctrine->getManager()
+                ->getRepository(Films::class)
+                ->findAll();
+
+            return $this->render('films/list.html.twig', [
+                'films' => $films,
+            ]);
+        }
 }

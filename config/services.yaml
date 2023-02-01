@@ -25,3 +25,6 @@ services:
 
     App\Controller\FilmsController:
         tags: ['controller.service_arguments']
+
+    App\Form\FilmsType:
+        tags: ['form.type']
